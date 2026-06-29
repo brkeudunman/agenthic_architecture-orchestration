@@ -32,9 +32,8 @@ jobs:
 
       - run: npm install
 
-      # NOTE: change --base to match your repository name
-      # (served at https://<user>.github.io/<repo>/).
-      - run: npm run build -- --base /claude-cert-domain1/
+      # --base must match the repo name (served at https://<user>.github.io/<repo>/).
+      - run: npm run build -- --base /agenthic_architecture-orchestration/
 
       - uses: actions/upload-pages-artifact@v3
         with:

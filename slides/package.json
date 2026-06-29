@@ -7,7 +7,7 @@
     "_comment": "Scripts call node on a RELATIVE path so an '&' in the project folder name doesn't break the Windows cmd shim. See README.",
     "dev": "node node_modules/@slidev/cli/bin/slidev.mjs --open",
     "build": "node node_modules/@slidev/cli/bin/slidev.mjs build",
-    "build:pages": "node node_modules/@slidev/cli/bin/slidev.mjs build --base /claude-cert-domain1/",
+    "build:pages": "node node_modules/@slidev/cli/bin/slidev.mjs build --base /agenthic_architecture-orchestration/",
     "export": "node node_modules/@slidev/cli/bin/slidev.mjs export --output dist/claude-cert-domain1.pdf"
   },
   "dependencies": {

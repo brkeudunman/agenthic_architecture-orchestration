@@ -30,11 +30,12 @@ npm run build          # static SPA in dist/ (base = /), good for local/Netlify
 npm run preview        # serve dist/ locally to spot-check
 
 # For GitHub Pages served at https://<user>.github.io/<repo>/:
-npm run build:pages    # sets --base /claude-cert-domain1/
+npm run build:pages    # sets --base /agenthic_architecture-orchestration/
 ```
 
-If you deploy under a different repo/path, change the `--base` value in the
-`build:pages` script (or in `.github/workflows/deploy.yml`) to match.
+The `--base` is set to this repo's name. If you fork or rename, change the
+`--base` value in the `build:pages` script **and** in
+`.github/workflows/deploy.yml` to match.
 
 ## Export to PDF
 
@@ -47,21 +48,19 @@ The first export downloads a headless Chromium via `playwright-chromium`
 
 ## Deploy to GitHub Pages
 
-This repo is not yet a git repository. To publish the deck:
+The workflow at [`../.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
+builds `slides/` and publishes to Pages on every push to `main` (it can also be
+run manually from the **Actions** tab via *Run workflow*).
+
+**One-time setup:** in the repo's **Settings → Pages**, set
+**Source = GitHub Actions**. Then push to `main`:
 
 ```bash
-git init
-git add .
-git commit -m "Add Domain 1 study guide + Slidev deck"
-# create a GitHub repo, then:
-git remote add origin git@github.com:<user>/<repo>.git
-git push -u origin main
+git push origin main
 ```
 
-A workflow at [`../.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
-builds `slides/` and publishes to Pages on every push to `main`. In the repo's
-**Settings → Pages**, set **Source = GitHub Actions**. Match the workflow's
-`--base` to your repo name.
+The deck will be served at
+<https://brkeudunman.github.io/agenthic_architecture-orchestration/>.
 
 **No-git alternative:** run `npm run build` and drag the `dist/` folder onto
 [Netlify Drop](https://app.netlify.com/drop).
