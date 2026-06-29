@@ -1,0 +1,21 @@
+{
+  "name": "claude-cert-domain1-slides",
+  "private": true,
+  "type": "module",
+  "description": "Slidev deck for the Anthropic Claude Certification study guide — Domain 1: Agentic Architecture & Orchestration",
+  "scripts": {
+    "_comment": "Scripts call node on a RELATIVE path so an '&' in the project folder name doesn't break the Windows cmd shim. See README.",
+    "dev": "node node_modules/@slidev/cli/bin/slidev.mjs --open",
+    "build": "node node_modules/@slidev/cli/bin/slidev.mjs build",
+    "build:pages": "node node_modules/@slidev/cli/bin/slidev.mjs build --base /claude-cert-domain1/",
+    "export": "node node_modules/@slidev/cli/bin/slidev.mjs export --output dist/claude-cert-domain1.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "playwright-chromium": "latest"
+  }
+}

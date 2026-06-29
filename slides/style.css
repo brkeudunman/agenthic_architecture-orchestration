@@ -1,0 +1,160 @@
+/* Global deck styles — auto-imported by Slidev (project-root style.css).
+   A deliberate, consistent type scale so dense slides (decision tables, the
+   4-callout Exam Trap slides, the quiz) stay readable and don't overflow.
+   NOTE: h1 is intentionally NOT overridden here so the cover and section
+   divider titles keep the theme's large display size. */
+
+/* ============================================================
+   Professional tech palette
+   Cool slate neutrals + a steel-cyan primary. Tuned to read as
+   "engineering / developer tooling" rather than playful.
+   Every component references these vars, so retheming the whole
+   deck is a matter of editing this block.
+   ============================================================ */
+:root {
+  /* Primary accent — steel cyan (theme, tables, code, quiz, links) */
+  --tech-primary:        #0891b2; /* cyan-600  — main brand accent      */
+  --tech-primary-strong: #0e7490; /* cyan-700  — label text on light    */
+  --tech-primary-bright: #22d3ee; /* cyan-400  — dark-mode text / marks */
+  --tech-primary-tint:   rgba(8, 145, 178, 0.10); /* fills              */
+  --tech-primary-line:   rgba(8, 145, 178, 0.30); /* borders            */
+
+  /* Secondary — steel blue (Key Concept callout, kept distinct)        */
+  --tech-blue:           #2563eb; /* blue-600                           */
+  --tech-blue-strong:    #1d4ed8; /* blue-700  — label text             */
+  --tech-blue-bright:    #60a5fa; /* blue-400  — dark mode              */
+  --tech-blue-tint:      rgba(37, 99, 235, 0.08);
+
+  /* Warning — amber (Exam Trap)                                        */
+  --tech-warn:           #b45309; /* amber-700 — label text             */
+  --tech-warn-line:      #d97706; /* amber-600 — border                 */
+  --tech-warn-bright:    #fbbf24; /* amber-400 — dark mode              */
+  --tech-warn-tint:      rgba(217, 119, 6, 0.10);
+
+  /* Semantics — emerald / rose                                         */
+  --tech-ok:             #059669; /* emerald-600                        */
+  --tech-ok-tint:        rgba(5, 150, 105, 0.12);
+  --tech-bad:            #e11d48; /* rose-600                           */
+  --tech-bad-tint:       rgba(225, 29, 72, 0.12);
+
+  /* Neutral hairlines — slate                                          */
+  --tech-line:           rgba(100, 116, 139, 0.22);
+
+  /* Slidev theme hook — drives cover title, section dividers, links    */
+  --slidev-theme-primary: #0891b2;
+}
+
+.slidev-layout {
+  font-size: 0.95rem;
+}
+
+/* ---- Headings (content slides) ---- */
+.slidev-layout h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.slidev-layout h3 {
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+/* ---- Body text ---- */
+.slidev-layout p,
+.slidev-layout li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.slidev-layout ul,
+.slidev-layout ol {
+  margin: 0.3rem 0;
+}
+.slidev-layout li + li {
+  margin-top: 0.12rem;
+}
+
+/* ---- Tables (decision matrices / frameworks) ----
+   Crisp data-grid styling: tinted header with a primary underline and
+   light slate row hairlines. */
+.slidev-layout table {
+  font-size: 0.8rem;
+  margin: 0.4rem 0;
+  border-collapse: collapse;
+}
+.slidev-layout th {
+  background: var(--tech-primary-tint);
+  border-bottom: 2px solid var(--tech-primary-line);
+  text-align: left;
+  font-weight: 700;
+}
+.slidev-layout td {
+  border-bottom: 1px solid var(--tech-line);
+}
+.slidev-layout td,
+.slidev-layout th {
+  padding: 0.3rem 0.55rem;
+}
+
+/* ---- Code ---- */
+.slidev-layout :not(pre) > code {
+  background: var(--tech-primary-tint);
+  color: inherit;
+  padding: 0.1em 0.35em;
+  border-radius: 0.3rem;
+  font-size: 0.88em;
+}
+.slidev-layout .slidev-code,
+.slidev-layout pre {
+  font-size: 0.8rem !important;
+  line-height: 1.45;
+}
+
+/* ---- Blockquotes (the "test yourself" answer reveals) ---- */
+.slidev-layout blockquote {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-left-color: var(--tech-primary-line);
+}
+
+/* ---- Cover (first slide) ----
+   The seriph `cover` layout defaults to a now-defunct source.unsplash.com
+   background image and forces text to white inline. That image never loads,
+   so in LIGHT mode the white title/subtitle sit on a near-white background
+   and become unreadable. Give the cover its own self-contained branded
+   gradient (deep slate + cyan glow) so it renders identically and legibly
+   in both light and dark mode, with no external image dependency.
+   `!important` is required to beat the layout's inline styles. */
+.slidev-layout.cover {
+  background-color: #0b1220 !important;
+  background-image:
+    radial-gradient(circle at 22% 18%, rgba(34, 211, 238, 0.28), transparent 55%),
+    radial-gradient(circle at 82% 88%, rgba(8, 145, 178, 0.30), transparent 50%),
+    linear-gradient(135deg, #0b1220 0%, #0f2536 55%, #0b1a24 100%) !important;
+  color: #f8fafc !important;
+}
+/* Keep accents (links, <code>, kbd) readable on the dark cover. */
+.slidev-layout.cover code {
+  background: rgba(34, 211, 238, 0.16);
+}
+.slidev-layout.cover kbd {
+  color: #f8fafc;
+}
+
+/* ---- Soft dark mode ----
+   Slidev's default dark background is a hard near-black (#121212, via the
+   `bg-main` shortcut on .slidev-slide-container). Soften it to a cool dark
+   slate that matches the deck's slate/cyan palette and the cover gradient,
+   and is easier on the eyes. Code blocks get a slightly deeper cool slate so
+   they stay distinct from the slide surface. */
+html.dark {
+  --slidev-code-background: #0f1420;
+  
+}
+html.dark .slidev-slide-container {
+  background-color: #171b24 !important;
+}
+
+
+html.dark .slidev-layout {
+  background-color: #171b24 !important;
+}
