@@ -9,11 +9,6 @@ fonts:
   serif: Inter
   mono: Fira Code
 title: Agentic Architecture & Orchestration — Domain 1
-# Hash routing avoids a base-doubling bug in Slidev 52 + vue-router 5 when the
-# deck is served from a GitHub Pages subpath: in history mode, client-side
-# navigation appends the --base a second time (…/<base>/<base>/2). With hash
-# routing the slide lives after the '#', so the base is applied only once.
-routerMode: hash
 info: |
   ## Claude Certification — Domain 1
   Agentic Architecture & Orchestration.

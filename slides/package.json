@@ -10,10 +10,11 @@
     "build:pages": "node node_modules/@slidev/cli/bin/slidev.mjs build --base /agenthic_architecture-orchestration/",
     "export": "node node_modules/@slidev/cli/bin/slidev.mjs export --output dist/claude-cert-domain1.pdf"
   },
+  "_versionNote": "@slidev/cli is pinned EXACTLY (no caret). 52.14+ moved to vue-router 5, which double-prepends the --base on client-side navigation when served from a GitHub Pages subpath (…/<base>/<base>/2). 52.13.0 is the last vue-router-4 release and navigates correctly. Do not bump to ^52 / latest without re-testing Pages navigation.",
   "dependencies": {
-    "@slidev/cli": "latest",
-    "@slidev/theme-seriph": "latest",
-    "vue": "latest"
+    "@slidev/cli": "52.13.0",
+    "@slidev/theme-seriph": "0.25.0",
+    "vue": "^3.5.0"
   },
   "devDependencies": {
     "playwright-chromium": "latest"

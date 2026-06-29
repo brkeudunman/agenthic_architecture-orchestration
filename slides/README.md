@@ -37,6 +37,13 @@ The `--base` is set to this repo's name. If you fork or rename, change the
 `--base` value in the `build:pages` script **and** in
 `.github/workflows/deploy.yml` to match.
 
+> **Why `@slidev/cli` is pinned to `52.13.0` (exactly, no caret):** Slidev
+> `52.14`+ moved to vue-router 5, which double-prepends `--base` on client-side
+> navigation when the deck is served from a subpath — pressing → would jump to
+> `…/<base>/<base>/2` and get stuck. `52.13.0` is the last vue-router-4 release
+> and navigates correctly. Don't bump to `latest` without re-testing Pages
+> navigation (load the built deck under the base path and press →).
+
 ## Export to PDF
 
 ```bash
