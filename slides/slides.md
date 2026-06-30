@@ -1,13 +1,13 @@
 ---
 theme: seriph
 fonts:
-  # Inter everywhere — a crisp, neutral UI typeface (the de-facto "tech"
-  # sans), overriding seriph's Times-like serif. Fira Code for code.
-  # Slidev auto-fetches these from Google Fonts.
-  # (To revert the look to the previous softer feel, set these to Nunito.)
-  sans: Inter
-  serif: Inter
-  mono: Fira Code
+  # Geist — Vercel's typeface — everywhere, overriding seriph's Times-like
+  # serif. Geist Mono for code. Slidev auto-fetches these from Google Fonts;
+  # if Geist can't be served the browser falls back to the system sans.
+  # (To revert, set sans/serif to Inter and mono to Fira Code.)
+  sans: Geist
+  serif: Geist
+  mono: Geist Mono
 title: Agentic Architecture & Orchestration — Domain 1
 info: |
   ## Claude Certification — Domain 1

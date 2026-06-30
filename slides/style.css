@@ -5,43 +5,44 @@
    divider titles keep the theme's large display size. */
 
 /* ============================================================
-   Professional tech palette
-   Cool slate neutrals + a steel-cyan primary. Tuned to read as
-   "engineering / developer tooling" rather than playful.
+   Vercel / Geist palette
+   Stark monochrome surfaces (white / near-black) with Vercel's
+   signature #0070f3 blue as the single brand accent and a Geist
+   violet secondary. Tuned to read as clean, modern product design.
    Every component references these vars, so retheming the whole
    deck is a matter of editing this block.
    ============================================================ */
 :root {
-  /* Primary accent — steel cyan (theme, tables, code, quiz, links) */
-  --tech-primary:        #0891b2; /* cyan-600  — main brand accent      */
-  --tech-primary-strong: #0e7490; /* cyan-700  — label text on light    */
-  --tech-primary-bright: #22d3ee; /* cyan-400  — dark-mode text / marks */
-  --tech-primary-tint:   rgba(8, 145, 178, 0.10); /* fills              */
-  --tech-primary-line:   rgba(8, 145, 178, 0.30); /* borders            */
+  /* Primary accent — Vercel blue (theme, tables, code, quiz, links) */
+  --tech-primary:        #0070f3; /* Vercel blue — main brand accent    */
+  --tech-primary-strong: #0061d5; /* darker blue — label text on light  */
+  --tech-primary-bright: #3291ff; /* lighter blue — dark-mode text/mark */
+  --tech-primary-tint:   rgba(0, 112, 243, 0.10); /* fills              */
+  --tech-primary-line:   rgba(0, 112, 243, 0.30); /* borders            */
 
-  /* Secondary — steel blue (Key Concept callout, kept distinct)        */
-  --tech-blue:           #2563eb; /* blue-600                           */
-  --tech-blue-strong:    #1d4ed8; /* blue-700  — label text             */
-  --tech-blue-bright:    #60a5fa; /* blue-400  — dark mode              */
-  --tech-blue-tint:      rgba(37, 99, 235, 0.08);
+  /* Secondary — Geist violet (Key Concept callout, kept distinct)      */
+  --tech-blue:           #7928ca; /* Geist violet                       */
+  --tech-blue-strong:    #6c1fb8; /* label text on light                */
+  --tech-blue-bright:    #b083f0; /* dark mode                          */
+  --tech-blue-tint:      rgba(121, 40, 202, 0.08);
 
-  /* Warning — amber (Exam Trap)                                        */
-  --tech-warn:           #b45309; /* amber-700 — label text             */
-  --tech-warn-line:      #d97706; /* amber-600 — border                 */
+  /* Warning — Geist amber (Exam Trap)                                  */
+  --tech-warn:           #b45309; /* amber-700 — label text on light    */
+  --tech-warn-line:      #f5a623; /* Geist amber — border               */
   --tech-warn-bright:    #fbbf24; /* amber-400 — dark mode              */
-  --tech-warn-tint:      rgba(217, 119, 6, 0.10);
+  --tech-warn-tint:      rgba(245, 166, 35, 0.10);
 
-  /* Semantics — emerald / rose                                         */
-  --tech-ok:             #059669; /* emerald-600                        */
-  --tech-ok-tint:        rgba(5, 150, 105, 0.12);
-  --tech-bad:            #e11d48; /* rose-600                           */
-  --tech-bad-tint:       rgba(225, 29, 72, 0.12);
+  /* Semantics — Geist green / red (quiz feedback)                      */
+  --tech-ok:             #16a34a; /* green                              */
+  --tech-ok-tint:        rgba(22, 163, 74, 0.12);
+  --tech-bad:            #ee0000; /* Geist red                          */
+  --tech-bad-tint:       rgba(238, 0, 0, 0.10);
 
-  /* Neutral hairlines — slate                                          */
-  --tech-line:           rgba(100, 116, 139, 0.22);
+  /* Neutral hairlines — Geist gray                                     */
+  --tech-line:           rgba(120, 120, 120, 0.22);
 
   /* Slidev theme hook — drives cover title, section dividers, links    */
-  --slidev-theme-primary: #0891b2;
+  --slidev-theme-primary: #0070f3;
 }
 
 .slidev-layout {
@@ -125,36 +126,41 @@
    in both light and dark mode, with no external image dependency.
    `!important` is required to beat the layout's inline styles. */
 .slidev-layout.cover {
-  background-color: #0b1220 !important;
+  background-color: #000 !important;
   background-image:
-    radial-gradient(circle at 22% 18%, rgba(34, 211, 238, 0.28), transparent 55%),
-    radial-gradient(circle at 82% 88%, rgba(8, 145, 178, 0.30), transparent 50%),
-    linear-gradient(135deg, #0b1220 0%, #0f2536 55%, #0b1a24 100%) !important;
-  color: #f8fafc !important;
+    radial-gradient(circle at 25% 15%, rgba(0, 112, 243, 0.30), transparent 55%),
+    radial-gradient(circle at 80% 88%, rgba(121, 40, 202, 0.26), transparent 52%),
+    linear-gradient(135deg, #000 0%, #060608 55%, #000 100%) !important;
+  color: #fafafa !important;
 }
 /* Keep accents (links, <code>, kbd) readable on the dark cover. */
 .slidev-layout.cover code {
-  background: rgba(34, 211, 238, 0.16);
+  background: rgba(0, 112, 243, 0.18);
 }
 .slidev-layout.cover kbd {
-  color: #f8fafc;
+  color: #fafafa;
 }
 
-/* ---- Soft dark mode ----
-   Slidev's default dark background is a hard near-black (#121212, via the
-   `bg-main` shortcut on .slidev-slide-container). Soften it to a cool dark
-   slate that matches the deck's slate/cyan palette and the cover gradient,
-   and is easier on the eyes. Code blocks get a slightly deeper cool slate so
-   they stay distinct from the slide surface. */
+/* ---- Vercel dark mode ----
+   Vercel's dark surface is pure black (#000). Use it for the slide surface
+   and lift code blocks one step (#111) so they stay distinct, separated by
+   the Geist-gray hairlines. */
 html.dark {
-  --slidev-code-background: #0f1420;
-  
+  --slidev-code-background: #111111;
 }
 html.dark .slidev-slide-container {
-  background-color: #171b24 !important;
+  background-color: #000 !important;
+}
+html.dark .slidev-layout {
+  background-color: #000 !important;
 }
 
-
-html.dark .slidev-layout {
-  background-color: #171b24 !important;
+/* ---- Disable Slidev's "Go to slide" dialog ----
+   Slidev's built-in `g` shortcut opens a navigation dialog
+   (`#slidev-goto-dialog`) docked to the top-right with a searchable list of
+   every slide. We don't want it surfacing mid-presentation, so hide it
+   outright. (The `g` keybinding is also unbound in setup/shortcuts.ts, so it
+   never opens; this rule is the belt-and-suspenders guarantee.) */
+#slidev-goto-dialog {
+  display: none !important;
 }
